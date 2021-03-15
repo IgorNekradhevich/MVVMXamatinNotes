@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:app7="clr-namespace:App7"
+             x:Class="App7.MainPage"
+             BindingContext="ViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding Notes}" SelectedItem="{Binding Index}">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                        <Label Text="{Binding Path=Date}"></Label>
+                        <Label Text="{Binding Path=Name}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+ 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Text="Add"></Button>
+            <Button Text="Remove"></Button>
+            <Button Text="Update"></Button>
+            <Button Text="Show" Command="{Binding ShowCommand}"></Button>
+        </StackLayout>
+     </Grid>
+</ContentPage>
